@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="header">Flames Calculator</h1>
+        <p class="header">Check your Love</p>
+    </div>
+    <div id="content1">
+        <div id="content">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Boy" id="Boy" placeholder="Boy's Name" required>
+                <input type="text" name="Girl" id="Girl" placeholder="Girl's Name" required>
+                <button id="but">❤ Click ❤</button>
+            </form>
+               
+            <p id="display"></p>
+        </div>
+    </div>
+</body>
+<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzWnlO8lDa8qQIIIownvJKsm44mhipLJ48NPLGHl6JtY4gNSRfVtbos9pNZx9oDcqGk/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+<script src="script.js">
+
+
+</script>
+</html>
